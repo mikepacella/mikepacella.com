@@ -1,2 +1,2 @@
 
-exports.title = "EED Site Word Listing";
+exports.title = "MikePacella.com";

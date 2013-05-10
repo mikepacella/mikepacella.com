@@ -34,8 +34,8 @@ var wordlist = {
     "best", "wait", "tomorrow", "surprise", "shop", "own", "best"]
 };
 
-exports.allLists = Object.keys(wordlist).sort();
+exports.allWordLists = Object.keys(wordlist).sort();
 
-exports.getList = function(listNumber) {
+exports.getWordList = function(listNumber) {
   return wordlist[listNumber];
 }
