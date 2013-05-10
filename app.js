@@ -4,12 +4,16 @@
  */
 
 var express = require('express')
-  , routes = require('./routes')
-  , user = require('./routes/user')
+  , models = {
+      appconfig : require('./models/appconfig'),
+      eedlist : require('./models/eedlist')
+    }
   , http = require('http')
   , path = require('path');
 
 var app = express();
+
+var index = require('./routes/index')(app, models);
 
 // all environments
 app.set('port', process.env.PORT || 3000);
@@ -29,9 +33,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
-
-app.get('/', routes.index);
-app.get('/users', user.list);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

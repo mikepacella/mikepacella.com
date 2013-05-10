@@ -5,4 +5,11 @@ html
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
     div.internal
+      h1
+        a(href='/')= title
       block content
+      div.footer
+        //- p
+          a.btn(href='mailto:mike@mikepacella.com') 
+            i.icon-envelope
+            | Email Mike

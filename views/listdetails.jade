@@ -1,0 +1,9 @@
+extends layout
+
+block content
+  h2 List #{id}
+  ul
+    - each word in wordlist
+      li= word
+  p
+    a(href='/') Back to Listing
