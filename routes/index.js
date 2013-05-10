@@ -2,7 +2,7 @@ module.exports = function(app, models) {
   this.models = models;
   app.get("/", index);
   app.get("/eeds", eeds);
-  app.get("/eeds/:id", eedsById);
+  app.get("/eeds/word-list/:id", eedsById);
 }
 
 var index = function(req, res){
