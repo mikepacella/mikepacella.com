@@ -1,0 +1,9 @@
+extends layout
+
+block content
+  h2 List #{params.id}
+  ul
+    - each word in wordlist
+      li= word
+  p
+    a(href='/eeds') Back to Listing

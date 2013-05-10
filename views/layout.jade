@@ -1,12 +1,15 @@
+- var formattedTitle = ''
+each item, i in title
+  - formattedTitle += (i > 0 ? ' | ' : '') + item
 doctype 5
 html
   head
-    title= title
+    title= formattedTitle
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
     div.internal
       h1
-        a(href='/')= title
+        a(href='/')= title[0]
       block content
       div.footer
         //- p
