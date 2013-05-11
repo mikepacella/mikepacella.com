@@ -1,55 +1,47 @@
 - var formattedTitle = ''
 each item, i in title
   - formattedTitle += (i > 0 ? ' | ' : '') + item
-!!! 5
-//if lt IE 7
-  <html class="ie ie6" lang="en">
-//if IE 7
-  <html class="ie ie7" lang="en">
+!!! html
 //if IE 8
-  <html class="ie ie8" lang="en">
-//if (gte IE 9)|!(IE)
-  <!--><html lang="en"> <!--
- 
-head
- 
-    - // Basic Page Needs
-    - // ==================================================
-    meta(charset="utf8")
+    html(class="no-js lt-ie9", lang="en")
+// [if gt IE 8] <!
+html(class="no-js", lang="en")
+  // <![endif]
+  head
+    meta(charset='utf-8')
     title= formattedTitle
-    meta(name="description", content="")
-    meta(name="author", content="")
- 
-    - // Mobile Specific Metas
-    - // ==================================================
-    meta(name="viewport", content="width=device-width, initial-scale=1, maximum-scale=1")
- 
-    - // CSS
-    - // ==================================================
-    link(rel="stylesheet", href="/stylesheets/style.css")
- 
-    //if lt IE 9
-        script(src="http://html5shim.googlecode.com/svn/trunk/html5.js")
- 
-    - // Favicons
-    - // ==================================================
-    link(rel="shortcut icon", href="/images/favicon.ico")
-    link(rel="apple-touch-icon", href="/images/apple-touch-icon.png")
-    link(rel="apple-touch-icon", sizes="72x72", href="/images/apple-touch-icon-72x72.png")
-    link(rel="apple-touch-icon", sizes="114x114", href="/images/apple-touch-icon-114x114.png")
- 
-body
- 
-    - // Primary Page Layout
-    - // ==================================================
-    - // 
-    - // Delete everything in this .container and get started on your own site!
- 
-    .container
- 
-        .sixteen.columns
-            h1.remove-bottom(style="margin-top: 40px")
-              a(href="/")= title[0]
-            h5 Version 1.2
-            hr
+    
+    // include CSS Files
+    link(rel='stylesheet', href='/stylesheets/foundation.css')
+    script(src='/javascripts/vendor/custom.modernizr.js')
+  
+  body
+    .row
+      .large-12.columns
+        h2
+          a(href='/')= title[0]
+        nav.top-bar
+          section.top-bar-section
+            ul.left
+              li
+                a(href='/eeds') EEDS Lists
+              li.divider
+    .row
+      .large-12.columns
         block content
+    .row
+      .large-4.columns
+        p Copyright 2013 - Mike Pacella
+      .large-8.columns
+        ul.inline-list.right
+          li
+            a(href='/') Home
+          li
+            a(href='/about') About
+    script
+      document.write('<script src=' +
+      ('__proto__' in {} ? '/javascripts/vendor/zepto' : '/javascripts/vendor/jquery') +
+      '.js><\/script>')
+    script(src='/javascripts/foundation.min.js')
+    script
+      $(document).foundation();

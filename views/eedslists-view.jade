@@ -1,11 +1,10 @@
 extends layout
 
 block content
-  .sixteen.columns
-    h2 List #{params.id}
-    ul
-      - each word in wordlist
-        li.five.columns= word
-  .sixteen.columns
-    p
-      a(href='/eeds') Back to Listing
+  h4 List #{params.id}
+  ul.large-block-grid-4.small-block-grid-2
+    - each word in wordlist
+      li
+        p= word
+  p
+    a.button.round(href='/eeds') Back to Listing
