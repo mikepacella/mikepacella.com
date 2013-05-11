@@ -3,6 +3,11 @@ module.exports = function(app, models) {
   app.get("/", index);
   app.get("/eeds", eeds);
   app.get("/eeds/word-list/:id", eedsById);
+  app.get("/skeleton", 
+    function(req, res){
+      res.render('skeleton', {title: ['Skeleton']});
+    }
+  );
 }
 
 var index = function(req, res){

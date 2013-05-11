@@ -1,8 +1,10 @@
 extends layout
 
 block content
-  h2 Word Lists
-  ul
-    - each list in wordlists
-      li
-        a(href='/eeds/word-list/#{list}') List #{list}
+  .sixteen.columns
+    h2 Word Lists
+  .sixteen.columns
+    ul
+      - each list in wordlists
+        li.five.columns
+          a(href='/eeds/word-list/#{list}') List #{list}

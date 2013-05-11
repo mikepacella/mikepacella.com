@@ -1,18 +1,55 @@
 - var formattedTitle = ''
 each item, i in title
   - formattedTitle += (i > 0 ? ' | ' : '') + item
-doctype 5
-html
-  head
+!!! 5
+//if lt IE 7
+  <html class="ie ie6" lang="en">
+//if IE 7
+  <html class="ie ie7" lang="en">
+//if IE 8
+  <html class="ie ie8" lang="en">
+//if (gte IE 9)|!(IE)
+  <!--><html lang="en"> <!--
+ 
+head
+ 
+    - // Basic Page Needs
+    - // ==================================================
+    meta(charset="utf8")
     title= formattedTitle
-    link(rel='stylesheet', href='/stylesheets/style.css')
-  body
-    div.internal
-      h1
-        a(href='/')= title[0]
-      block content
-      div.footer
-        //- p
-          a.btn(href='mailto:mike@mikepacella.com') 
-            i.icon-envelope
-            | Email Mike
+    meta(name="description", content="")
+    meta(name="author", content="")
+ 
+    - // Mobile Specific Metas
+    - // ==================================================
+    meta(name="viewport", content="width=device-width, initial-scale=1, maximum-scale=1")
+ 
+    - // CSS
+    - // ==================================================
+    link(rel="stylesheet", href="/stylesheets/style.css")
+ 
+    //if lt IE 9
+        script(src="http://html5shim.googlecode.com/svn/trunk/html5.js")
+ 
+    - // Favicons
+    - // ==================================================
+    link(rel="shortcut icon", href="/images/favicon.ico")
+    link(rel="apple-touch-icon", href="/images/apple-touch-icon.png")
+    link(rel="apple-touch-icon", sizes="72x72", href="/images/apple-touch-icon-72x72.png")
+    link(rel="apple-touch-icon", sizes="114x114", href="/images/apple-touch-icon-114x114.png")
+ 
+body
+ 
+    - // Primary Page Layout
+    - // ==================================================
+    - // 
+    - // Delete everything in this .container and get started on your own site!
+ 
+    .container
+ 
+        .sixteen.columns
+            h1.remove-bottom(style="margin-top: 40px")
+              a(href="/")= title[0]
+            h5 Version 1.2
+            hr
+        block content
