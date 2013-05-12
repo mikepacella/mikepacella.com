@@ -14,6 +14,7 @@ var express = require('express')
 var app = express();
 
 var index = require('./routes/index')(app, models);
+var eeds = require('./routes/eeds')(app, models);
 
 // all environments
 app.set('port', process.env.PORT || 3000);

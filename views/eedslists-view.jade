@@ -4,7 +4,9 @@ block content
   h4 List #{params.id}
   ul.large-block-grid-4.small-block-grid-2
     - each word in wordlist
-      li.th
-        p= word
+      li
+        p.text-center= word
   p
-    a.button.round(href='/eeds') Back to Listing
+    a.button.round(href='/eeds') 
+      i.icon-circle-arrow-left.button-icon-left
+      | Back to Listing

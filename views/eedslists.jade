@@ -4,4 +4,6 @@ block content
   h2 Word Lists
   - each list in wordlists
     .large-3.small-6.columns.left
-        a.button(href='/eeds/word-list/#{list}') List #{list}
+        a.button.round(href='/eeds/word-list/#{list}') 
+          i.icon-list.button-icon-left
+          | List #{list}

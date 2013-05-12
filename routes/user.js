@@ -1,8 +1,11 @@
-
+module.exports = function(app, models) {
+  this.models = models;
+  app.get("/users", list);
+}
 /*
  * GET users listing.
  */
 
-exports.list = function(req, res){
+var list = function(req, res){
   res.send("respond with a resource");
 };
