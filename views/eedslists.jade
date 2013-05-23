@@ -1,6 +1,11 @@
 extends layout
 
 block content
+  ul.breadcrumbs
+    li
+      a(href='/') Home
+    li.current
+      a(href='/eeds') EEDS Listing
   h2 Word Lists
   - each list in wordlists
     .large-3.small-6.columns.left

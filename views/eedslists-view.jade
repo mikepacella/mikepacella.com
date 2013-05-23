@@ -1,12 +1,16 @@
 extends layout
 
 block content
+  ul.breadcrumbs
+    li
+      a(href='/') Home
+    li
+      a(href='/eeds') EEDS Listing
+    li.current
+      a(href='/eeds/word-list/#{params.id}') List #{params.id}
   h4 List #{params.id}
   ul.large-block-grid-4.small-block-grid-2
     - each word in wordlist
       li
         p.text-center= word
-  p
-    a.button.round(href='/eeds') 
-      i.icon-circle-arrow-left.button-icon-left
-      | Back to Listing
+  a.round.large.button.expand(href='/eeds/practice-word-list/#{params.id}') Practice 

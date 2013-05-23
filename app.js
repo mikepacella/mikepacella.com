@@ -13,9 +13,6 @@ var express = require('express')
 
 var app = express();
 
-var index = require('./routes/index')(app, models);
-var eeds = require('./routes/eeds')(app, models);
-
 // all environments
 app.set('port', process.env.PORT || 3000);
 app.set('views', __dirname + '/views');
@@ -24,11 +21,14 @@ app.use(express.favicon());
 app.use(express.logger('dev'));
 app.use(express.bodyParser());
 app.use(express.methodOverride());
-app.use(express.cookieParser('your secret here'));
-app.use(express.session());
+app.use(express.cookieParser());
+app.use(express.session({secret: '1234567890QWERTY'}));
 app.use(app.router);
-  app.use(require('less-middleware')({ src: __dirname + '/public' }));
+app.use(require('less-middleware')({ src: __dirname + '/public' }));
 app.use(express.static(path.join(__dirname, 'public')));
+
+var index = require('./routes/index')(app, models);
+var eeds = require('./routes/eeds')(app, models);
 
 // development only
 if ('development' == app.get('env')) {

@@ -1,0 +1,8 @@
+extends layout
+
+block content
+  p.slide-text= word
+  if parseFloat(params.idx)+1 != numWords
+    div.large-3.small-3.pull-right
+      a.round.button.expand(href='/eeds/practice-word-list/#{params.id}/#{parseFloat(params.idx)+1}')
+        i.icon-chevron-right
